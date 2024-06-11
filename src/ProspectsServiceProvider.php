@@ -2,9 +2,9 @@
 
 namespace Homeful\Prospects;
 
+use Homeful\Prospects\Commands\ProspectsCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Homeful\Prospects\Commands\ProspectsCommand;
 
 class ProspectsServiceProvider extends PackageServiceProvider
 {

@@ -2,10 +2,11 @@
 
 namespace Homeful\Prospects\Data;
 
-use Spatie\LaravelData\DataCollection;
 use Homeful\Prospects\Model\Prospect;
-use Spatie\LaravelData\Optional;
 use Spatie\LaravelData\Data;
+use Spatie\LaravelData\DataCollection;
+use Spatie\LaravelData\Optional;
+
 class ProspectData extends Data
 {
     public function __construct(
@@ -18,11 +19,12 @@ class ProspectData extends Data
         public string $id_number,
         /** @var UploadData[] */
         public DataCollection|Optional $uploads,
-    ) {}
+    ) {
+    }
 
     public static function fromModel(Prospect $model): self
     {
-        return new self (
+        return new self(
             name: $model->name,
             address: $model->address,
             birthdate: $model->birthdate,
@@ -40,5 +42,6 @@ class UploadData extends Data
     public function __construct(
         public string $name,
         public string $url
-    ) {}
+    ) {
+    }
 }

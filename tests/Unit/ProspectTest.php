@@ -1,13 +1,14 @@
 <?php
 
-use Illuminate\Foundation\Testing\{RefreshDatabase, WithFaker};
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Homeful\Prospects\Data\ProspectData;
 use Homeful\Prospects\Model\Prospect;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 uses(RefreshDatabase::class, WithFaker::class);
 
-beforeEach(function() {
+beforeEach(function () {
     $this->faker = $this->makeFaker('en_PH');
     $migration = include 'vendor/spatie/laravel-medialibrary/database/migrations/create_media_table.php.stub';
     $migration->up();
@@ -20,8 +21,8 @@ dataset('prospect', function () {
                 'idImage' => 'https://jn-img.enclaves.ph/Test/idImage.jpg',
                 'selfieImage' => 'https://jn-img.enclaves.ph/Test/selfieImage.jpg',
                 'idMarkImage' => 'https://jn-img.enclaves.ph/Test/payslipImage.jpg',
-            ])
-        ]
+            ]),
+        ],
     ];
 });
 
@@ -37,7 +38,7 @@ test('prospect has schema attributes', function (Prospect $prospect) {
     expect($prospect->idImage)->toBeInstanceOf(Media::class);
     expect($prospect->selfieImage)->toBeInstanceOf(Media::class);
     expect($prospect->idMarkImage)->toBeInstanceOf(Media::class);
-//    expect($prospect->reference_code)->toBeString();
+    //    expect($prospect->reference_code)->toBeString();
 })->with('prospect');
 
 test('prospect can attach media', function () {
@@ -91,6 +92,6 @@ test('prospect has data', function (Prospect $prospect) {
         $name = $upload['name'];
         $url = $upload['url'];
         expect($prospect->$name->getUrl())->toBe($url);
-    };
+    }
     expect($data->uploads->toArray())->toBe($prospect->uploads);
 })->with('prospect');
