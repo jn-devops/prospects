@@ -8,11 +8,15 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('prospects_table', function (Blueprint $table) {
+        Schema::create('prospects', function (Blueprint $table) {
             $table->id();
-
-            // add fields
-
+            $table->string('name');
+            $table->string('address');
+            $table->string('birthdate');
+            $table->string('email');
+            $table->string('mobile')->nullable();
+            $table->string('id_type');
+            $table->string('id_number');
             $table->timestamps();
         });
     }

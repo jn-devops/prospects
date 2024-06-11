@@ -17,7 +17,7 @@ class ProspectsServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('prospects')
-            ->hasConfigFile()
+            ->hasConfigFile(['data', 'prospects', 'media-library'])
             ->hasViews()
             ->hasMigration('create_prospects_table')
             ->hasCommand(ProspectsCommand::class);
