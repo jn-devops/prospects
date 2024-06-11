@@ -2,10 +2,10 @@
 
 namespace Homeful\Prospects\Data;
 
-use Spatie\LaravelData\DataCollection;
 use Homeful\Prospects\Model\Prospect;
-use Spatie\LaravelData\Optional;
 use Spatie\LaravelData\Data;
+use Spatie\LaravelData\DataCollection;
+use Spatie\LaravelData\Optional;
 
 class ProspectData extends Data
 {
