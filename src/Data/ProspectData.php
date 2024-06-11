@@ -2,14 +2,16 @@
 
 namespace Homeful\Prospects\Data;
 
+use Spatie\LaravelData\DataCollection;
 use Homeful\Prospects\Model\Prospect;
 use Spatie\LaravelData\Data;
-use Spatie\LaravelData\DataCollection;
+
 use Spatie\LaravelData\Optional;
 
 class ProspectData extends Data
 {
     public function __construct(
+        public string $reference_code,
         public string $name,
         public string $address,
         public string $birthdate,
@@ -25,6 +27,7 @@ class ProspectData extends Data
     public static function fromModel(Prospect $model): self
     {
         return new self(
+            reference_code: $model->reference_code,
             name: $model->name,
             address: $model->address,
             birthdate: $model->birthdate,

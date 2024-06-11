@@ -1,10 +1,10 @@
 <?php
 
-use Homeful\Prospects\Data\ProspectData;
-use Homeful\Prospects\Model\Prospect;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Homeful\Prospects\Data\ProspectData;
+use Homeful\Prospects\Model\Prospect;
 
 uses(RefreshDatabase::class, WithFaker::class);
 
@@ -27,6 +27,7 @@ dataset('prospect', function () {
 });
 
 test('prospect has schema attributes', function (Prospect $prospect) {
+    expect($prospect->reference_code)->toBeString();
     expect($prospect->name)->toBeString();
     expect($prospect->address)->toBeString();
     expect($prospect->birthdate)->toBeString();
@@ -79,7 +80,7 @@ test('prospect can attach media', function () {
 
 test('prospect has data', function (Prospect $prospect) {
     $data = ProspectData::fromModel($prospect);
-
+    expect($data->reference_code)->toBe($prospect->reference_code);
     expect($data->name)->toBe($prospect->name);
     expect($data->address)->toBe($prospect->address);
     expect($data->birthdate)->toBe($prospect->birthdate);

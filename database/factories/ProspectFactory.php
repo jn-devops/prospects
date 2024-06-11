@@ -2,8 +2,8 @@
 
 namespace Homeful\Prospects\Database\Factories;
 
-use Homeful\Prospects\Model\Prospect;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Homeful\Prospects\Model\Prospect;
 
 class ProspectFactory extends Factory
 {
@@ -12,6 +12,7 @@ class ProspectFactory extends Factory
     public function definition()
     {
         return [
+            'reference_code' => $this->faker->name(),
             'name' => $this->faker->name(),
             'address' => $this->faker->address(),
             'birthdate' => $this->faker->date(),

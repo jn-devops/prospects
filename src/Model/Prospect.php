@@ -2,22 +2,23 @@
 
 namespace Homeful\Prospects\Model;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\{Str};
-use Spatie\Image\Enums\Fit;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileCannotBeAdded;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig;
-use Spatie\MediaLibrary\MediaCollections\File;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\MediaLibrary\MediaCollections\File;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Illuminate\Support\{Str};
+use Spatie\Image\Enums\Fit;
 
 /**
  * Class Prospect
  *
  * @property int $id
+ * @property string $reference_code
  * @property string $name
  * @property string $address
  * @property string $birthdate
@@ -38,6 +39,7 @@ class Prospect extends Model implements HasMedia
     use InteractsWithMedia;
 
     protected $fillable = [
+        'reference_code',
         'name',
         'address',
         'birthdate',
