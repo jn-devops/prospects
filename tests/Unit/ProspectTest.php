@@ -1,10 +1,11 @@
 <?php
 
-use Homeful\Prospects\Data\ProspectData;
-use Homeful\Prospects\Model\Prospect;
+
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Homeful\Prospects\Data\ProspectData;
+use Homeful\Prospects\Model\Prospect;
 
 uses(RefreshDatabase::class, WithFaker::class);
 
