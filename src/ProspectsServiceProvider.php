@@ -19,6 +19,7 @@ class ProspectsServiceProvider extends PackageServiceProvider
             ->name('prospects')
             ->hasConfigFile(['data', 'prospects', 'media-library'])
             ->hasViews()
+            ->hasRoute('web')
             ->hasMigration('create_prospects_table')
             ->hasCommand(ProspectsCommand::class);
     }
