@@ -2,6 +2,10 @@
 
 All notable changes to `prospects` will be documented in this file.
 
+## #v1.1.0 - 2024-06-13
+
+add AuthenticateProspectAction and end point
+
 ## #v1.0.2 - 2024-06-13
 
 add newFactory() in Prospect class
