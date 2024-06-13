@@ -3,10 +3,10 @@
 namespace Homeful\Prospects\Actions;
 
 use Homeful\Prospects\Events\ProspectAuthenticated;
-use Illuminate\Support\Facades\Validator;
-use Lorisleiva\Actions\Concerns\AsAction;
 use Homeful\Prospects\Model\Prospect;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Validator;
+use Lorisleiva\Actions\Concerns\AsAction;
 
 class AuthenticateProspectAction
 {
@@ -71,9 +71,9 @@ class AuthenticateProspectAction
             'id_number' => Arr::get($fieldsExtracted, 'idNumber'),
         ]);
 
-//        $prospect->idImage = $idImageUrl;
-//        $prospect->selfieImage = $selfieImageUrl;
-//        $prospect->save();
+        //        $prospect->idImage = $idImageUrl;
+        //        $prospect->selfieImage = $selfieImageUrl;
+        //        $prospect->save();
 
         return $prospect;
     }

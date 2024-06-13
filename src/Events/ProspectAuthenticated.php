@@ -2,13 +2,12 @@
 
 namespace Homeful\Prospects\Events;
 
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Foundation\Events\Dispatchable;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Queue\SerializesModels;
 use Homeful\Prospects\Model\Prospect;
 use Illuminate\Broadcasting\Channel;
+use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Queue\SerializesModels;
 
 class ProspectAuthenticated implements ShouldBroadcast
 {
@@ -29,7 +28,7 @@ class ProspectAuthenticated implements ShouldBroadcast
     public function broadcastOn(): array
     {
         return [
-            new Channel('reference.' . $this->prospect->reference_code),
+            new Channel('reference.'.$this->prospect->reference_code),
         ];
     }
 
