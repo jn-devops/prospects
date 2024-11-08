@@ -13,7 +13,10 @@ class ProspectFactory extends Factory
     {
         return [
             'reference_code' => $this->faker->name(),
-            'name' => $this->faker->name(),
+            'first_name' => $this->faker->name(),
+            'middle_name' => $this->faker->name(),
+            'last_name' => $this->faker->name(),
+            'name_extension' => $this->faker->name(),
             'address' => $this->faker->address(),
             'birthdate' => $this->faker->date(),
             'email' => $this->faker->email(),

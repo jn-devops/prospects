@@ -4,4 +4,5 @@ namespace Homeful\Prospects;
 
 class Prospects
 {
+
 }

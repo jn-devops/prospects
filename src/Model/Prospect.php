@@ -40,7 +40,10 @@ class Prospect extends Model implements HasMedia
 
     protected $fillable = [
         'reference_code',
-        'name',
+        'first_name',
+        'middle_name',
+        'last_name',
+        'name_extension',
         'address',
         'birthdate',
         'email',
