@@ -61,7 +61,10 @@ class AuthenticateProspectAction
         $selfieImageUrl = Arr::get($validated, 'body.data.selfieImageUrl');
 
         $prospect = app(Prospect::class)->create([
-            'name' => Arr::get($fieldsExtracted, 'fullName'),
+            'first_name' => Arr::get($fieldsExtracted, 'first_name'),
+            'last_name' => Arr::get($fieldsExtracted, 'last_name'),
+            'name_extension' => Arr::get($fieldsExtracted, 'name_extension'),
+            'middle_name' => Arr::get($fieldsExtracted, 'middle_name'),
             'address' => Arr::get($fieldsExtracted, 'address'),
             'birthdate' => Arr::get($fieldsExtracted, 'dateOfBirth'),
             'email' => $email,

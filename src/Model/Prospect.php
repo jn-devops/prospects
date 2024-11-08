@@ -59,6 +59,13 @@ class Prospect extends Model implements HasMedia
         'birthdate',
     ];
 
+    protected $appends = [
+        'name',
+        'id_image',
+        'selfie_image',
+        'id_mark_image',
+    ];
+
     protected static function newFactory()
     {
         $modelName = static::class;
@@ -67,6 +74,10 @@ class Prospect extends Model implements HasMedia
         return app($path)->new();
     }
 
+    public function getNameAttribute(): ?string
+    {
+        return "{$this->last_name} {$this->name_extension}, {$this->first_name} {$this->middle_name}";
+    }
     /**
      * @return $this
      *
@@ -84,6 +95,9 @@ class Prospect extends Model implements HasMedia
 
         return $this;
     }
+
+
+
 
     public function getIdImageAttribute(): ?Media
     {

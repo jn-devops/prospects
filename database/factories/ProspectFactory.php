@@ -4,6 +4,7 @@ namespace Homeful\Prospects\Database\Factories;
 
 use Homeful\Prospects\Model\Prospect;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Faker\Factory as FakerFactory;
 
 class ProspectFactory extends Factory
 {
@@ -11,18 +12,21 @@ class ProspectFactory extends Factory
 
     public function definition()
     {
+        // Create a Faker instance with the Filipino locale
+        $faker = FakerFactory::create('en_PH');
+
         return [
-            'reference_code' => $this->faker->name(),
-            'first_name' => $this->faker->name(),
-            'middle_name' => $this->faker->name(),
-            'last_name' => $this->faker->name(),
-            'name_extension' => $this->faker->name(),
-            'address' => $this->faker->address(),
-            'birthdate' => $this->faker->date(),
-            'email' => $this->faker->email(),
-            'mobile' => $this->faker->phoneNumber(),
-            'id_type' => $this->faker->word(),
-            'id_number' => $this->faker->uuid(),
+            'reference_code' => 'JN-' . $faker->numerify('######'), // Generates a code like 'JN-123456'
+            'first_name' => $faker->firstName(),
+            'middle_name' => $faker->lastName(),
+            'last_name' => $faker->lastName(),
+            'name_extension' => $faker->optional()->suffix(),
+            'address' => $faker->address(),
+            'birthdate' => $faker->date(),
+            'email' => $faker->unique()->safeEmail(),
+            'mobile' => '+63' . $faker->numerify('9#########'), // Philippine mobile number
+            'id_type' => $faker->randomElement(['TIN', 'SSS', 'GSIS', 'UMID']),
+            'id_number' => $faker->unique()->numerify('##########'),
             'idImage' => null,
             'selfieImage' => null,
             'idMarkImage' => null,
