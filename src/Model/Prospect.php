@@ -19,7 +19,10 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  *
  * @property int $id
  * @property string $reference_code
- * @property string $name
+ * @property string $first_name
+ * @property string $last_name
+ * @property string $middle_name
+ * @property string $name_extension
  * @property string $address
  * @property string $birthdate
  * @property string $email
