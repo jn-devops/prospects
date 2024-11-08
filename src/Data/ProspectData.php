@@ -20,8 +20,7 @@ class ProspectData extends Data
         public string $id_number,
         /** @var UploadData[] */
         public DataCollection|Optional $uploads,
-    ) {
-    }
+    ) {}
 
     public static function fromModel(Prospect $model): self
     {
@@ -44,6 +43,5 @@ class UploadData extends Data
     public function __construct(
         public string $name,
         public string $url
-    ) {
-    }
+    ) {}
 }

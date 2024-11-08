@@ -4,7 +4,7 @@ namespace Homeful\Prospects\Model;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\{Str};
+use Illuminate\Support\Str;
 use Spatie\Image\Enums\Fit;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -81,6 +81,7 @@ class Prospect extends Model implements HasMedia
     {
         return "{$this->last_name} {$this->name_extension}, {$this->first_name} {$this->middle_name}";
     }
+
     /**
      * @return $this
      *
@@ -98,9 +99,6 @@ class Prospect extends Model implements HasMedia
 
         return $this;
     }
-
-
-
 
     public function getIdImageAttribute(): ?Media
     {
